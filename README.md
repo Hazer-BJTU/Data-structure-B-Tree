@@ -17,7 +17,7 @@ It is the same as ```bTree(5)```.
 ```
   bool insert(const T& element);
 ```
-Insert an ```element``` into the bTree.
+Insert an ```element``` into the bTree, the return value indicates whether the insertion is successful.
 ```
   void printTree();
 ```
@@ -29,7 +29,7 @@ Print all the elements in ascending order in the command line.
 ```
   bTree_iterator<T> begin();
 ```
-Return a bTree iterator pointing to the first element.
+Return a bTree iterator pointing to the first element. If the tree is empty, it will return end().
 ```
   bTree_iterator<T> end();
 ```
