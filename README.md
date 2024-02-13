@@ -79,6 +79,6 @@ You can use it to manipulate the element. For example, the following code shows 
   tree.insert(2);
   tree.insert(3);
   for (bTree_iterator<int> it = tree.begin() ; it != tree.end() ; it++) {
-    std::cout << *(it.get());
+    std::cout << *(it.get()) << ' ';
   }
 ```
