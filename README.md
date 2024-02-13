@@ -3,7 +3,7 @@ B-Tree implementation as homework assignment for data structure course.
 ## Introduction
 B-Tree is a typical dynamic search tree like Binary Search Tree, AVL Tree, Red Black Tree and B+Tree etc, which is capable of simultaneously inserting, removing and querying elements. This is a complete B-Tree program suitable for homework assignment of data structure. Despite its lenghy implementation, potential bugs and low efficiency, its to some extent easy to understand for undergraduate students who major in computer science.
 ## API
-## ``` template<class T> bTree ```
+## ``` template<class T> class bTree ```
 Declaration: bTree.h\
 Definition: bTree.hpp
 ```
@@ -50,7 +50,7 @@ Find the first element that is strictly greater than the given ```element``` or 
   bTree_iterator<T> precursor(const T& element);
 ```
 Find the last element that is strictly smaller than the given ```element``` or return ```end()``` if such element doesn't exist.
-## ```template<class T> bTree_iterator```
+## ```template<class T> class bTree_iterator```
 Declaration: bTree_iterator.h\
 Definition: bTree_iterator.hpp
 ```
