@@ -15,15 +15,15 @@ Initialize a bTree instance whose nodes contain at most ```size``` elements and 
 ```
 It is the same as ```bTree(5)```.
 ```
-  bool insert(const T& element);
+  bTree<T>& insert(const T& element);
 ```
-Insert an ```element``` into the bTree. The return value indicates whether the insertion is successful.
+Insert an ```element``` into the bTree.
 ```
-  void printTree();
+  bTree<T>& printTree();
 ```
 Print the structure of bTree in the command line.
 ```
-  void printInOrder();
+  bTree<T>& printInOrder();
 ```
 Print all the elements in ascending order in the command line.
 ```
@@ -39,9 +39,9 @@ Return a bTree iterator pointing to the successor of the last element.
 ```
 Return a bTree iterator pointing to the given ```element``` or return ```end()``` if the given ```element``` doesn't exist.
 ```
-  bool remove(const T& element);
+  bTree<T>& remove(const T& element);
 ```
-Remove an ```element``` from the bTree. The return value indicates whether the operation is successful.
+Remove an ```element``` from the bTree.
 ```
   bTree_iterator<T> successor(const T& element);
 ```
@@ -50,6 +50,10 @@ Find the first element that is strictly greater than the given ```element``` or 
   bTree_iterator<T> precursor(const T& element);
 ```
 Find the last element that is strictly smaller than the given ```element``` or return ```end()``` if such element doesn't exist.
+```
+  bTree<T>& clear();
+```
+Clear all elements in the tree.
 ## ```template<class T> class bTree_iterator```
 Declaration: bTree_iterator.h\
 Definition: bTree_iterator.hpp
