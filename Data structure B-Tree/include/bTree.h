@@ -18,15 +18,16 @@ public:
 	bTree();
 	~bTree();
 	//Member functions
-	bool insert(const T& element);
-	void printTree();
-	void printInOrder();
+	bTree<T>& insert(const T& element);
+	bTree<T>& printTree();
+	bTree<T>& printInOrder();
 	bTree_iterator<T> begin();
 	bTree_iterator<T> end();
 	bTree_iterator<T> find(const T& element);
-	bool remove(const T& element);
+	bTree<T>& remove(const T& element);
 	bTree_iterator<T> successor(const T& element);
 	bTree_iterator<T> precursor(const T& element);
+	bTree<T>& clear();
 };
 
 #include "..\src\bTree.hpp"
