@@ -25,16 +25,16 @@ bTree_node<T>* bTree<T>::locate(const T& element) {
 }
 
 template<class T>
-bool bTree<T>::insert(const T& element) {
+bTree<T>& bTree<T>::insert(const T& element) {
 	bTree_node<T>* node = locate(element);
 	if (node == NULL) {
 		end_node->pointerArr[0] = new bTree_node<T>(size, element);
 		end_node->pointerArr[0]->father = end_node;
-		return true;
+		return *this;
 	}
 	if (node->locateInNode(element) != -1) {
 		//The given element already exists in the tree.
-		return false;
+		return *this;
 	}
 	//Find the first element in node which is greater than the given element.
 	int p = 0;
@@ -50,28 +50,28 @@ bool bTree<T>::insert(const T& element) {
 		else break;
 		node = node->father;
 	}
-	return true;
+	return *this;
 }
 
 template<class T>
-void bTree<T>::printTree() {
+bTree<T>& bTree<T>::printTree() {
 	if (!end_node->pointerArr[0]) {
 		std::cout << "The tree is empty..." << std::endl;
-		return;
+		return *this;
 	}
 	end_node->pointerArr[0]->printTree();
-	return;
+	return *this;
 }
 
 template<class T>
-void bTree<T>::printInOrder() {
+bTree<T>& bTree<T>::printInOrder() {
 	if (!end_node->pointerArr[0]) {
 		std::cout << "The tree is empty..." << std::endl;
-		return;
+		return *this;
 	}
 	end_node->pointerArr[0]->printInOrder();
 	std::cout << std::endl;
-	return;
+	return *this;
 }
 
 template<class T>
@@ -98,16 +98,16 @@ bTree_iterator<T> bTree<T>::find(const T& element) {
 }
 
 template<class T>
-bool bTree<T>::remove(const T& element) {
+bTree<T>& bTree<T>::remove(const T& element) {
 	bTree_node<T>* node = locate(element);
 	if (node == NULL) {
 		//The tree is empty.
-		return false;
+		return *this;
 	}
 	int pos = node->locateInNode(element);
 	if (pos == -1) {
 		//The element doesn't exist.
-		return false;
+		return *this;
 	}
 	if (!node->isTerminal()) {
 		//Instead of removing a given element in an internal node, we actually remove its successor.
@@ -152,7 +152,7 @@ bool bTree<T>::remove(const T& element) {
 		delete end_node->pointerArr[0];
 		end_node->pointerArr[0] = NULL;
 	}
-	return true;
+	return *this;
 }
 
 template<class T>
@@ -175,3 +175,10 @@ bTree_iterator<T> bTree<T>::precursor(const T& element) {
 	return it;
 }
 
+template<class T>
+bTree<T>& bTree<T>::clear() {
+	if (end_node->pointerArr[0] == NULL) return *this;
+	delete end_node->pointerArr[0];
+	end_node->pointerArr[0] = NULL;
+	return *this;
+}
