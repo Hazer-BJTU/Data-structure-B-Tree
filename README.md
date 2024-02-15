@@ -17,7 +17,7 @@ It is the same as ```bTree(5)```.
 ```
   bTree<T>& insert(const T& element);
 ```
-Insert an ```element``` into the bTree.
+Insert an ```element``` into the tree.
 ```
   bTree<T>& printTree();
 ```
@@ -41,7 +41,7 @@ Return a bTree iterator pointing to the given ```element``` or return ```end()``
 ```
   bTree<T>& remove(const T& element);
 ```
-Remove an ```element``` from the bTree.
+Remove an ```element``` from the tree.
 ```
   bTree_iterator<T> successor(const T& element);
 ```
@@ -79,9 +79,11 @@ It is similar to the operation above.
 You can use it to manipulate the element. For example, the following code shows you how to print all elements in the bTree in ascending order.
 ```
   bTree<int> tree;
+
   tree.insert(1);
   tree.insert(2);
   tree.insert(3);
+
   for (bTree_iterator<int> it = tree.begin() ; it != tree.end() ; it++) {
     std::cout << *(it.get()) << ' ';
   }
