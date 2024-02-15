@@ -111,13 +111,15 @@ int main() {
 						break;
 					}
 				}
-				if (flag) cout << "Compare test passed.\n";
+				if (flag) cout << "Traverse test passed.\n";
 				else {
-					cout << "Compare test failed!\n";
+					cout << "Traverse test failed!\n";
 					exit(0);
 				}
 			}
 		}
+		tree.printTree();
+		tree.clear();
 		tree.printTree();
 	}
 	_CrtDumpMemoryLeaks();
